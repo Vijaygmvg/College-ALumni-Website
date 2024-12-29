@@ -1,0 +1,119 @@
+.App {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo-container {
+  width: 50px; /* Adjust the size of the logo container */
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%; /* Makes the container round */
+}
+
+.logo {
+  width: 100%; /* Ensures the logo fills the container */
+  height: auto;
+  border-radius: 50%; /* Makes the image itself round */
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  justify-content: center; /* Center align navigation links */
+  align-items: center; /* Vertical align navigation links */
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: #555;
+}
+
+.nav-toggle {
+  display: none; /* Hide the checkbox by default */
+}
+
+.nav-toggle-label {
+  cursor: pointer;
+  display: none; /* Hide hamburger icon by default */
+}
+
+.nav-toggle-label span {
+  display: block;
+  width: 30px; /* Width of the hamburger lines */
+  height: 2px;
+  background-color: #fff;
+  margin-bottom: 6px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+/* Media query for responsive design */
+@media screen and (max-width: 768px) {
+  .nav-toggle-label {
+    display: block; /* Display the hamburger icon */
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 1000; /* Ensure it's on top of everything else */
+  }
+
+  .nav-toggle {
+    display: none; /* Ensure the checkbox is hidden */
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center; /* Center align navigation links */
+    display: none; /* Hide the nav links by default */
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links.show {
+    display: flex; /* Show the nav links when checkbox is checked */
+  }
+
+  .nav-links li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .nav-toggle:checked + .navbar .nav-toggle-label span:nth-child(1) {
+    transform: rotate(45deg) translate(2px, 3px);
+  }
+
+  .nav-toggle:checked + .navbar .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle:checked + .navbar .nav-toggle-label span:nth-child(3) {
+    transform: rotate(-45deg) translate(1px, -1px);
+  }
+}
